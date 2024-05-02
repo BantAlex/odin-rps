@@ -50,12 +50,14 @@
 
         function playRound(computerChoice,humanChoice) {
 
+            getHumanChoice();
+
             if (computerChoice === humanChoice) {
 
                 console.log("It's a Tie!")
                 playRound();
 
-            } else if (computerChoice === "rock" && computerChoice === 'paper'){
+            } else if (computerChoice === "Rock" && humanChoice === 'paper'){
 
                 humanScore++
                 console.log("You win! You gain one point!")
@@ -63,7 +65,7 @@
                 console.log("I currently have " + computerScore + " points")
                 playRound();
 
-            } else if (computerChoice === "rock" && computerChoice === 'scissors'){
+            } else if (computerChoice === "Rock" && humanChoice === 'scissors'){
 
                 computerScore++
                 console.log("I win! I gain a point!")
@@ -71,7 +73,7 @@
                 console.log("I currently have " + computerScore + " points")
                 playRound();
 
-            } else if (computerChoice === "paper" && computerChoice === 'scissors'){
+            } else if (computerChoice === "Paper" && humanChoice === 'scissors'){
 
                 humanScore++
                 console.log("You win! You gain one point!")
@@ -79,7 +81,7 @@
                 console.log("I currently have " + computerScore + " points")
                 playRound();
                 
-            } else if (computerChoice === "paper" && computerChoice === 'rock'){
+            } else if (computerChoice === "Paper" && humanChoice === 'rock'){
 
                 computerScore++
                 console.log("I win! I gain a point!")
@@ -87,7 +89,7 @@
                 console.log("I currently have " + computerScore + " points")
                 playRound();
 
-            } else if (computerChoice === "scissors" && computerChoice === 'paper') {
+            } else if (computerChoice === "Scissors" && humanChoice === 'rock') {
 
                 humanScore++
                 console.log("You win! You gain one point!")
@@ -95,7 +97,7 @@
                 console.log("I currently have " + computerScore + " points")
                 playRound();
                 
-            } else if (computerChoice === "scissors" && computerChoice === 'rock') {
+            } else if (computerChoice === "Scissors" && humanChoice === 'paper') {
 
                 computerScore++
                 console.log("I win! I gain a point!")
