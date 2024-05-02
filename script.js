@@ -8,7 +8,8 @@
         let computerScore = 0;
 
         //Computer Choice and Human Choice functions
-        
+
+
         function getComputerChoice() {
 
             let computerChoice = ''
@@ -21,7 +22,7 @@
             } else {
                 computerChoice = "Scissors"
             }
-
+            
             return computerChoice.toLowerCase();
         }
 
@@ -42,22 +43,17 @@
 
         //Round function and start
 
-        let computerChoice = getComputerChoice();
-        let humanChoice = getHumanChoice();
-
-        function playRound(computerChoice,humanChoice) {
+        function playRound() {
             
-            getComputerChoice();
-            getHumanChoice();
-     
-            if (computerChoice === humanChoice) {
+
+            if (getComputerChoice() === getHumanChoice()) {
 
                 console.log("It's a Tie!");
                 console.log("You currently have " + humanScore + " points");
                 console.log("I currently have " + computerScore + " points");
                 playRound();
 
-            } else if (computerChoice === "rock" && humanChoice === 'paper'){
+            } else if (getComputerChoice() === "rock" && getHumanChoice() === 'paper'){
 
                 humanScore++;
                 console.log("You win! You gain one point!");
@@ -65,7 +61,7 @@
                 console.log("I currently have " + computerScore + " points");
                 playRound();
 
-            } else if (computerChoice === "rock" && humanChoice === 'scissors'){
+            } else if (getComputerChoice() === "rock" && getHumanChoice() === 'scissors'){
 
                 computerScore++;
                 console.log("I win! I gain a point!");
@@ -73,7 +69,7 @@
                 console.log("I currently have " + computerScore + " points");
                 playRound();
 
-            } else if (computerChoice === "paper" && humanChoice === 'scissors'){
+            } else if (getComputerChoice() === "paper" && getHumanChoice() === 'scissors'){
 
                 humanScore++;
                 console.log("You win! You gain one point!");
@@ -81,7 +77,7 @@
                 console.log("I currently have " + computerScore + " points");
                 playRound();
                 
-            } else if (computerChoice === "paper" && humanChoice === 'rock'){
+            } else if (getComputerChoice() === "paper" && getHumanChoice() === 'rock'){
 
                 computerScore++;
                 console.log("I win! I gain a point!");
@@ -89,7 +85,7 @@
                 console.log("I currently have " + computerScore + " points");
                 playRound();
 
-            } else if (computerChoice === "scissors" && humanChoice === 'rock') {
+            } else if (getComputerChoice() === "scissors" && getHumanChoice() === 'rock') {
 
                 humanScore++;
                 console.log("You win! You gain one point!");
@@ -97,7 +93,7 @@
                 console.log("I currently have " + computerScore + " points");
                 playRound();
                 
-            } else if (computerChoice === "scissors" && humanChoice === 'paper') {
+            } else if (getComputerChoice() === "scissors" && getHumanChoice() === 'paper') {
 
                 computerScore++;
                 console.log("I win! I gain a point!");
@@ -109,8 +105,10 @@
                 console.log("Placeholder");
             }
 
-            playRound();
-
         }
-
+        
+                //Computer Choice does not change no matter how many times the funtion is called.
         playRound();
+
+    
+        //It seems to generate it here and then it stops doing so when called.
