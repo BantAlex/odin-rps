@@ -25,6 +25,7 @@ function getHumanChoice() {
     if (userChoice.toLowerCase() != "rock" || userChoice.toLowerCase() != "paper" || userChoice.toLowerCase() != "Scissors"){
         console.log("Wrong input. Please try again.")
         getHumanChoice();
+        
     }
 }
 
