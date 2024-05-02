@@ -43,6 +43,7 @@ function playRound() {
 
     if (computerChoice === humanChoice) {
         console.log("It's a Tie!")
+        playRound();
     }
 }
 
