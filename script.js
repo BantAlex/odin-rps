@@ -20,12 +20,11 @@ function getComputerChoice(){
 
 function getHumanChoice() {
     getComputerChoice();
-    let userChoice = prompt("Please make your move:")
+    let userChoice = prompt("Please make your move: Rock, Paper or Scissors?")
     
     if (userChoice.toLowerCase() != "rock" || userChoice.toLowerCase() != "paper" || userChoice.toLowerCase() != "Scissors"){
         console.log("Wrong input. Please try again.")
         getHumanChoice();
-        
     }
 }
 
