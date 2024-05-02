@@ -34,12 +34,10 @@ function getHumanChoice() {
 
     return humanChoice;
 }
-
-
-function playRound() {
-
     let computerChoice = getComputerChoice();
     let humanChoice = getHumanChoice();
+
+function playRound(computerChoice,humanChoice) {
 
     if (computerChoice === humanChoice) {
         console.log("It's a Tie!")
