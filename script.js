@@ -5,9 +5,7 @@
 
 let humanScore = 0;
 let computerScore = 0;
-
 //Computer Choice and Human Choice functions
-
 function getComputerChoice() {
     let computerChoice = ''
     let randomNum = Math.floor((Math.random() * 3) + 1 )
