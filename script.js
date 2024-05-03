@@ -7,45 +7,9 @@
         let humanScore = 0;
         let computerScore = 0;
 
-        //Computer Choice and Human Choice functions
-
-
-        function getComputerChoice(){
-
-            let computerChoice = ''
-            let randomNum = Math.floor((Math.random() * 3) + 1 )
-
-            if (randomNum === 1) {
-                computerChoice = 'Rock';
-            } else if (randomNum === 2) {
-                computerChoice = "Paper";
-            } else {
-                computerChoice = "Scissors"
-            }
-            
-            return computerChoice.toLowerCase();
-        }
-
-
-        function getHumanChoice(){
-
-            let humanChoice = prompt("Please make your move: Rock, Paper or Scissors?")
-            
-            if (humanChoice.toLowerCase() !== "rock" && humanChoice.toLowerCase() !== "paper" && humanChoice.toLowerCase() !== "scissors"){
-                console.log("Wrong input. Please try again.")
-                getHumanChoice();
-            }
-
-            return humanChoice.toLowerCase();
-        }
-            
-            let compSelection = getComputerChoice();
-            let humSelection = getHumanChoice();
-
         //Round function and start
 
         function playRound() {
-            
 
             if (compSelection === humSelection) {
 
@@ -107,34 +71,33 @@
             }
 
         }
-        
-                //Computer Choice does not change no matter how many times the funtion is called.
+    
         function playGame() {
 
             //Round 1
             playRound();
-            getComputerChoice();
-            getHumanChoice();
+            humSelection;
+            compSelection;
 
             //Round 2
             playRound();
-            getComputerChoice();
-            getHumanChoice();
+            humSelection;
+            compSelection;
 
             //Round 3
             playRound();
-            getComputerChoice();
-            getHumanChoice();
+            humSelection;
+            compSelection;
 
             //Round 4
             playRound();
-            getComputerChoice();
-            getHumanChoice();
+            humSelection;
+            compSelection;
 
             //Round 5
             playRound();
-            getComputerChoice();
-            getHumanChoice();
+            humSelection;
+            compSelection;
            
             //Replay Function
             function replayFunc(){
@@ -152,7 +115,9 @@
                     replayFunc();
                 }
             }
-            if (humanScore > compSelection) {
+
+            //Win/Lose condition
+            if (humanScore > computerScore) {
                 console.log("Congrats! You win nothing at all!")
                 replayFunc();
             } else {
@@ -161,6 +126,39 @@
             }
         }
 
-        playGame();
+//Computer Choice and Human Choice functions
+function getComputerChoice(){
+
+    let computerChoice = ''
+    let randomNum = Math.floor((Math.random() * 3) + 1 )
+
+    if (randomNum === 1) {
+        computerChoice = 'Rock';
+    } else if (randomNum === 2) {
+        computerChoice = "Paper";
+    } else {
+        computerChoice = "Scissors"
+    }
     
-        //It seems to generate it here and then it stops doing so when called.
+    return computerChoice.toLowerCase();
+}
+
+
+function getHumanChoice(){
+
+    let humanChoice = prompt("Please make your move: Rock, Paper or Scissors?")
+    
+    if (humanChoice.toLowerCase() !== "rock" && humanChoice.toLowerCase() !== "paper" && humanChoice.toLowerCase() !== "scissors"){
+        console.log("Wrong input. Please try again.")
+        getHumanChoice();
+    }
+
+    return humanChoice.toLowerCase();
+}
+    
+    let compSelection = getComputerChoice();
+    let humSelection = getHumanChoice();
+
+
+
+        playGame();
