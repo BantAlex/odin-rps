@@ -1,4 +1,13 @@
-//Selectors
+//Selectors-DOM
+const input = document.querySelector('.input');
+
+const playerInput = document.createElement('input');
+playerInput.type = "text";
+playerInput.className = 'textInput';
+playerInput.placeholder = 'e.g. A 0-';
+
+input.appendChild(playerInput);
+
 
 
 //Score count
