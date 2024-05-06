@@ -1,6 +1,9 @@
+//Selectors
+
+
+//Score count
 let humanScore = 0;
 let computerScore = 0;
-
 
 //Round function and start
 function playRound() {
