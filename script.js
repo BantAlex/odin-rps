@@ -12,6 +12,7 @@ const selectRock = document.createElement('button');
 const selectPaper = document.createElement('button');
 const selectScissors = document.createElement('button');
 const buttonWrap = document.createElement('div');
+const results = document.createElement('p');
 
 input.appendChild(buttonWrap);
 buttonWrap.classList.add('button-wrap');
@@ -28,6 +29,8 @@ selectScissors.textContent = 'Scissors';
 selectRock.classList.add('input');
 selectPaper.classList.add('input');
 selectScissors.classList.add('input');
+
+input.appendChild(results);
 
 selectRock.addEventListener('click', function(){
     humanChoice = 'rock';
@@ -50,56 +53,56 @@ function playRound() {
 
     if (compSelection === humanChoice ) {
 
-        console.log("I picked " + compSelection + "!")
-        console.log("It's a Tie!");
+        results.textContent = "I picked " + compSelection + "!\n It's a draw!";
+        
         console.log("You currently have " + humanScore + " points");
         console.log("I currently have " + computerScore + " points");
 
     } else if (compSelection === "rock" && humanChoice === 'paper'){
 
         humanScore++;
-        console.log("I picked " + compSelection + "!")
-        console.log("You win! You gain one point!");
+        results.textContent = "I picked " + compSelection + "!\n You win! You gain one point!";
+
         console.log("You currently have " + humanScore + " points");
         console.log("I currently have " + computerScore + " points");
 
     } else if (compSelection === "rock" && humanChoice === 'scissors'){
 
         computerScore++;
-        console.log("I picked " + compSelection + "!")
-        console.log("I win! I gain a point!");
+        results.textContent = "I picked " + compSelection + "!\n I win! I gain one point!";
+
         console.log("You currently have " + humanScore + " points");
         console.log("I currently have " + computerScore + " points");
 
     } else if (compSelection === "paper" && humanChoice === 'scissors'){
 
         humanScore++;
-        console.log("I picked " + compSelection + "!")
-        console.log("You win! You gain one point!");
+        results.textContent = "I picked " + compSelection + "!\n You win! You gain one point!";
+
         console.log("You currently have " + humanScore + " points");
         console.log("I currently have " + computerScore + " points");
         
     } else if (compSelection === "paper" && humanChoice === 'rock'){
 
         computerScore++;
-        console.log("I picked " + compSelection + "!")
-        console.log("I win! I gain a point!");
+        results.textContent = "I picked " + compSelection + "!\n I win! I gain a point!";
+
         console.log("You currently have " + humanScore + " points");
         console.log("I currently have " + computerScore + " points");
 
     } else if (compSelection === "scissors" && humanChoice === 'rock') {
 
         humanScore++;
-        console.log("I picked " + compSelection + "!")
-        console.log("You win! You gain one point!");
+        results.textContent = "I picked " + compSelection + "!\n You win! You gain one point!";
+
         console.log("You currently have " + humanScore + " points");
         console.log("I currently have " + computerScore + " points");
         
     } else if (compSelection === "scissors" && humanChoice === 'paper') {
 
         computerScore++;
-        console.log("I picked " + compSelection + "!")
-        console.log("I win! I gain a point!");
+        results.textContent = "I picked " + compSelection + "!\n I win! I gain one point!";
+
         console.log("You currently have " + humanScore + " points");
         console.log("I currently have " + computerScore + " points");
 
