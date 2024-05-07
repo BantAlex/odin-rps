@@ -47,4 +47,5 @@ h1{
 .button-selection:hover{
     border: solid rgba(255, 255, 0, 0.625) 2px;
     color: rgba(255, 255, 0, 0.625);
+    cursor: pointer;
 }

@@ -1,3 +1,8 @@
+//Variable Decloration
+let humanScore = 0;
+let computerScore = 0;
+let humanChoice = '';
+
 //Selectors-DOM
 const input = document.querySelector('.input');
 const selectRock = document.createElement('button');
@@ -9,6 +14,7 @@ input.appendChild(buttonWrap);
 buttonWrap.classList.add('button-wrap');
 
 const selections = [selectRock,selectPaper,selectScissors];
+
 selections.forEach((buttons) => buttonWrap.appendChild(buttons));
 selections.forEach((button) => button.classList.add('button-selection'));
 
@@ -20,17 +26,21 @@ selectRock.classList.add('input');
 selectPaper.classList.add('input');
 selectScissors.classList.add('input');
 
-
-//Score count
-let humanScore = 0;
-let computerScore = 0;
+selectRock.addEventListener('click', function(){
+    humanChoice = 'rock';
+});
+selectPaper.addEventListener('click', function(){
+    humanChoice = 'paper';
+});
+selectScissors.addEventListener('click', function(){
+    humanChoice = 'scissors';
+});
 
 //Round function and start
 function playRound() {
 
     let compSelection = getComputerChoice();
-    let humSelection = getHumanChoice();
-
+    
     if (compSelection === humSelection) {
 
         console.log("I picked " + compSelection + "!")
@@ -154,18 +164,5 @@ function getComputerChoice(){
     
     return computerChoice.toLowerCase();
 }
-
-function getHumanChoice(){
-
-    let humanChoice = prompt("Please make your move: Rock, Paper or Scissors?")
-    
-    if (humanChoice.toLowerCase() !== "rock" && humanChoice.toLowerCase() !== "paper" && humanChoice.toLowerCase() !== "scissors"){
-        console.log("Wrong input. Please try again.")
-        return getHumanChoice();
-    }
-
-    return humanChoice.toLowerCase();
-
-}
-    
+ 
 playGame();
