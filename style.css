@@ -49,3 +49,14 @@ h1{
     color: rgba(255, 255, 0, 0.625);
     cursor: pointer;
 }
+
+.scoreboard{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.highlighted{
+    color: rgba(255, 255, 0, 0.625);
+}

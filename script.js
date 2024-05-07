@@ -13,6 +13,11 @@ const selectPaper = document.createElement('button');
 const selectScissors = document.createElement('button');
 const buttonWrap = document.createElement('div');
 const results = document.createElement('p');
+const scoreboard = document.querySelector('.scoreboard');
+const humanScoreText = document.createElement('h3');
+const computerScoreText = document.createElement('h3');
+
+scoreboardUpdate();
 
 input.appendChild(buttonWrap);
 buttonWrap.classList.add('button-wrap');
@@ -31,6 +36,8 @@ selectPaper.classList.add('input');
 selectScissors.classList.add('input');
 
 input.appendChild(results);
+scoreboard.appendChild(humanScoreText);
+scoreboard.appendChild(computerScoreText);
 
 selectRock.addEventListener('click', function(){
     humanChoice = 'rock';
@@ -45,106 +52,60 @@ selectScissors.addEventListener('click', function(){
     playGame();
 });
 
-//Round function and start
+//Round Play And Scoreboard
 function playRound() {
     isPlaying = true;
 
     let compSelection = getComputerChoice();
 
     if (compSelection === humanChoice ) {
-
         results.textContent = "I picked " + compSelection + "!\n It's a draw!";
-        
-        console.log("You currently have " + humanScore + " points");
-        console.log("I currently have " + computerScore + " points");
-
     } else if (compSelection === "rock" && humanChoice === 'paper'){
-
         humanScore++;
         results.textContent = "I picked " + compSelection + "!\n You win! You gain one point!";
-
-        console.log("You currently have " + humanScore + " points");
-        console.log("I currently have " + computerScore + " points");
-
     } else if (compSelection === "rock" && humanChoice === 'scissors'){
-
         computerScore++;
         results.textContent = "I picked " + compSelection + "!\n I win! I gain one point!";
-
-        console.log("You currently have " + humanScore + " points");
-        console.log("I currently have " + computerScore + " points");
-
     } else if (compSelection === "paper" && humanChoice === 'scissors'){
-
         humanScore++;
         results.textContent = "I picked " + compSelection + "!\n You win! You gain one point!";
-
-        console.log("You currently have " + humanScore + " points");
-        console.log("I currently have " + computerScore + " points");
-        
     } else if (compSelection === "paper" && humanChoice === 'rock'){
-
         computerScore++;
         results.textContent = "I picked " + compSelection + "!\n I win! I gain a point!";
-
-        console.log("You currently have " + humanScore + " points");
-        console.log("I currently have " + computerScore + " points");
-
     } else if (compSelection === "scissors" && humanChoice === 'rock') {
-
         humanScore++;
         results.textContent = "I picked " + compSelection + "!\n You win! You gain one point!";
-
-        console.log("You currently have " + humanScore + " points");
-        console.log("I currently have " + computerScore + " points");
-        
     } else if (compSelection === "scissors" && humanChoice === 'paper') {
-
         computerScore++;
         results.textContent = "I picked " + compSelection + "!\n I win! I gain one point!";
-
-        console.log("You currently have " + humanScore + " points");
-        console.log("I currently have " + computerScore + " points");
-
     } else {
         console.log("how");
     }
+    scoreboardUpdate();
     isPlaying = false;
 }
-    
+function scoreboardUpdate() {
+    humanScoreText.innerHTML = 'You currently have <span class="highlighted">' + humanScore + '</span> points.';
+    computerScoreText.innerHTML = 'I currently have <span class="highlighted">' + computerScore + '</span> points.';
+}
 function playGame() {
 
     playRound();
     roundCount++;
-    
-    //Replay Function
-    function replayFunc(){
-
-        let replay = prompt("Play again? (Yes/No)");
-
-        if (replay.toLowerCase() === "yes"){
-            playGame();
-            return replay;
-        } else if (replay.toLowerCase() === "no"){
-            console.log("Okay, goodbye!")
-            return;
-        } else{
-            console.log("Not a valid option. Please input either YES or NO.")
-            replayFunc();
-        }
-    }
 
     //Win/Lose condition
     if (roundCount === 5){
+        humanScore = 0;
+        computerScore = 0;
+        scoreboardUpdate();
+
         if (humanScore > computerScore) {
             console.log("Congrats! You win nothing at all!")
             replayFunc();
         } else if (humanScore === computerScore) {
-            console.log("It's a tie! We both lose!")
-            replayFunc();
+            results.textContent = "Congrats! You win sweet FA!";
         }else {
-            console.log("You lose...sorry")
-            replayFunc();
+            results.textContent = "Sorry, you lose...";
         }
     } 
 }
