@@ -1,5 +1,8 @@
 //Selectors-DOM
 const input = document.querySelector('.input');
+const selectRock = document.createElement('button')
+const selectPaper = document.createElement('button')
+const selectScissors = document.createElement('button')
 
 
 //Score count
@@ -9,67 +12,67 @@ let computerScore = 0;
 //Round function and start
 function playRound() {
 
-let compSelection = getComputerChoice();
-let humSelection = getHumanChoice();
+    let compSelection = getComputerChoice();
+    let humSelection = getHumanChoice();
 
-if (compSelection === humSelection) {
+    if (compSelection === humSelection) {
 
-    console.log("I picked " + compSelection + "!")
-    console.log("It's a Tie!");
-    console.log("You currently have " + humanScore + " points");
-    console.log("I currently have " + computerScore + " points");
+        console.log("I picked " + compSelection + "!")
+        console.log("It's a Tie!");
+        console.log("You currently have " + humanScore + " points");
+        console.log("I currently have " + computerScore + " points");
 
-} else if (compSelection === "rock" && humSelection=== 'paper'){
+    } else if (compSelection === "rock" && humSelection=== 'paper'){
 
-    humanScore++;
-    console.log("I picked " + compSelection + "!")
-    console.log("You win! You gain one point!");
-    console.log("You currently have " + humanScore + " points");
-    console.log("I currently have " + computerScore + " points");
+        humanScore++;
+        console.log("I picked " + compSelection + "!")
+        console.log("You win! You gain one point!");
+        console.log("You currently have " + humanScore + " points");
+        console.log("I currently have " + computerScore + " points");
 
-} else if (compSelection === "rock" && humSelection=== 'scissors'){
+    } else if (compSelection === "rock" && humSelection=== 'scissors'){
 
-    computerScore++;
-    console.log("I picked " + compSelection + "!")
-    console.log("I win! I gain a point!");
-    console.log("You currently have " + humanScore + " points");
-    console.log("I currently have " + computerScore + " points");
+        computerScore++;
+        console.log("I picked " + compSelection + "!")
+        console.log("I win! I gain a point!");
+        console.log("You currently have " + humanScore + " points");
+        console.log("I currently have " + computerScore + " points");
 
-} else if (compSelection === "paper" && humSelection=== 'scissors'){
+    } else if (compSelection === "paper" && humSelection=== 'scissors'){
 
-    humanScore++;
-    console.log("I picked " + compSelection + "!")
-    console.log("You win! You gain one point!");
-    console.log("You currently have " + humanScore + " points");
-    console.log("I currently have " + computerScore + " points");
-    
-} else if (compSelection === "paper" && humSelection=== 'rock'){
+        humanScore++;
+        console.log("I picked " + compSelection + "!")
+        console.log("You win! You gain one point!");
+        console.log("You currently have " + humanScore + " points");
+        console.log("I currently have " + computerScore + " points");
+        
+    } else if (compSelection === "paper" && humSelection=== 'rock'){
 
-    computerScore++;
-    console.log("I picked " + compSelection + "!")
-    console.log("I win! I gain a point!");
-    console.log("You currently have " + humanScore + " points");
-    console.log("I currently have " + computerScore + " points");
+        computerScore++;
+        console.log("I picked " + compSelection + "!")
+        console.log("I win! I gain a point!");
+        console.log("You currently have " + humanScore + " points");
+        console.log("I currently have " + computerScore + " points");
 
-} else if (compSelection === "scissors" && humSelection=== 'rock') {
+    } else if (compSelection === "scissors" && humSelection=== 'rock') {
 
-    humanScore++;
-    console.log("I picked " + compSelection + "!")
-    console.log("You win! You gain one point!");
-    console.log("You currently have " + humanScore + " points");
-    console.log("I currently have " + computerScore + " points");
-    
-} else if (compSelection === "scissors" && humSelection=== 'paper') {
+        humanScore++;
+        console.log("I picked " + compSelection + "!")
+        console.log("You win! You gain one point!");
+        console.log("You currently have " + humanScore + " points");
+        console.log("I currently have " + computerScore + " points");
+        
+    } else if (compSelection === "scissors" && humSelection=== 'paper') {
 
-    computerScore++;
-    console.log("I picked " + compSelection + "!")
-    console.log("I win! I gain a point!");
-    console.log("You currently have " + humanScore + " points");
-    console.log("I currently have " + computerScore + " points");
+        computerScore++;
+        console.log("I picked " + compSelection + "!")
+        console.log("I win! I gain a point!");
+        console.log("You currently have " + humanScore + " points");
+        console.log("I currently have " + computerScore + " points");
 
-} else {
-    console.log("Placeholder");
-}
+    } else {
+        console.log("Placeholder");
+    }
 }
     
 function playGame() {
