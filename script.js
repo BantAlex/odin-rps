@@ -1,8 +1,24 @@
 //Selectors-DOM
 const input = document.querySelector('.input');
-const selectRock = document.createElement('button')
-const selectPaper = document.createElement('button')
-const selectScissors = document.createElement('button')
+const selectRock = document.createElement('button');
+const selectPaper = document.createElement('button');
+const selectScissors = document.createElement('button');
+const buttonWrap = document.createElement('div');
+
+input.appendChild(buttonWrap);
+buttonWrap.classList.add('button-wrap');
+
+const selections = [selectRock,selectPaper,selectScissors];
+selections.forEach((buttons) => buttonWrap.appendChild(buttons));
+selections.forEach((button) => button.classList.add('button-selection'));
+
+selectRock.textContent = 'Rock';
+selectPaper.textContent = 'Paper';
+selectScissors.textContent = 'Scissors';
+
+selectRock.classList.add('input');
+selectPaper.classList.add('input');
+selectScissors.classList.add('input');
 
 
 //Score count

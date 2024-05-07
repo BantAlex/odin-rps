@@ -28,3 +28,23 @@ h1{
 .textInput{
     border: solid  4px rgb(111, 145, 111);
 }
+
+.button-wrap{
+    display: flex;
+    justify-content: center;
+    align-items: space-between;
+    gap: 64px;
+}
+
+.button-selection{
+    background-color: rgba(0,0,0,0.3);
+    color:#a1b3cd;
+    padding: 16px;
+    border-radius: 8px;
+    border: solid transparent 2px;
+}
+
+.button-selection:hover{
+    border: solid rgba(255, 255, 0, 0.625) 2px;
+    color: rgba(255, 255, 0, 0.625);
+}
