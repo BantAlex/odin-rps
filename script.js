@@ -14,6 +14,7 @@ const selectScissors = document.createElement('button');
 const buttonWrap = document.createElement('div');
 const results = document.createElement('p');
 const scoreboard = document.querySelector('.scoreboard');
+const roundCountText = document.createElement('h3');
 const humanScoreText = document.createElement('h3');
 const computerScoreText = document.createElement('h3');
 
@@ -36,6 +37,7 @@ selectPaper.classList.add('input');
 selectScissors.classList.add('input');
 
 input.appendChild(results);
+scoreboard.appendChild(roundCountText);
 scoreboard.appendChild(humanScoreText);
 scoreboard.appendChild(computerScoreText);
 
@@ -85,18 +87,19 @@ function playRound() {
     isPlaying = false;
 }
 function scoreboardUpdate() {
+    roundCountText.innerHTML = 'This is round <span class="highlighted">' + roundCount + '</span>.'
     humanScoreText.innerHTML = 'You currently have <span class="highlighted">' + humanScore + '</span> points.';
     computerScoreText.innerHTML = 'I currently have <span class="highlighted">' + computerScore + '</span> points.';
 }
 function playGame() {
-
     playRound();
     roundCount++;
 
-    //Win/Lose condition
+    //Game End
     if (roundCount === 5){
         humanScore = 0;
         computerScore = 0;
+        roundCount = 0;
         scoreboardUpdate();
 
         if (humanScore > computerScore) {
@@ -109,7 +112,7 @@ function playGame() {
         }
     } 
 }
-//Computer Choice and Human Choice functions
+//Computer Choice
 function getComputerChoice(){
 
     let randomNum = Math.floor((Math.random() * 3) + 1 )
