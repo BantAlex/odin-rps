@@ -44,17 +44,17 @@ scoreboard.appendChild(computerScoreText);
 selectRock.addEventListener('click', function(){
     humanChoice = 'rock';
     roundCount++;
-    playGame();
+    playRound();
 });
 selectPaper.addEventListener('click', function(){
     humanChoice = 'paper';
     roundCount++;
-    playGame();
+    playRound();
 });
 selectScissors.addEventListener('click', function(){
     humanChoice = 'scissors';
     roundCount++;
-    playGame();
+    playRound();
 });
 
 //Round Play And Scoreboard
@@ -88,14 +88,7 @@ function playRound() {
     }
     scoreboardUpdate();
     isPlaying = false;
-}
-function scoreboardUpdate() {
-    roundCountText.innerHTML = 'This is round <span class="highlighted">' + roundCount + '</span>.'
-    humanScoreText.innerHTML = 'You currently have <span class="highlighted">' + humanScore + '</span> points.';
-    computerScoreText.innerHTML = 'I currently have <span class="highlighted">' + computerScore + '</span> points.';
-}
-function playGame() {
-    playRound();
+
     //Game End
     if (roundCount === 5){
         humanScore = 0;
@@ -112,6 +105,11 @@ function playGame() {
             results.textContent = "Sorry, you lose...";
         }
     } 
+}
+function scoreboardUpdate() {
+    roundCountText.innerHTML = 'This is round <span class="highlighted">' + roundCount + '</span>.'
+    humanScoreText.innerHTML = 'You currently have <span class="highlighted">' + humanScore + '</span> points.';
+    computerScoreText.innerHTML = 'I currently have <span class="highlighted">' + computerScore + '</span> points.';
 }
 //Computer Choice
 function getComputerChoice(){
