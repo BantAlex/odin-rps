@@ -43,14 +43,17 @@ scoreboard.appendChild(computerScoreText);
 
 selectRock.addEventListener('click', function(){
     humanChoice = 'rock';
+    roundCount++;
     playGame();
 });
 selectPaper.addEventListener('click', function(){
     humanChoice = 'paper';
+    roundCount++;
     playGame();
 });
 selectScissors.addEventListener('click', function(){
     humanChoice = 'scissors';
+    roundCount++;
     playGame();
 });
 
@@ -93,8 +96,6 @@ function scoreboardUpdate() {
 }
 function playGame() {
     playRound();
-    roundCount++;
-
     //Game End
     if (roundCount === 5){
         humanScore = 0;
