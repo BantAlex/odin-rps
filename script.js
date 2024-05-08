@@ -4,7 +4,6 @@ let computerScore = 0;
 let humanChoice = '';
 let computerChoice = ''
 let roundCount = 0;
-let isPlaying = false;
 
 //Selectors-DOM
 const input = document.querySelector('.input');
@@ -43,26 +42,22 @@ scoreboard.appendChild(computerScoreText);
 
 selectRock.addEventListener('click', function(){
     humanChoice = 'rock';
-    roundCount++;
     playRound();
 });
 selectPaper.addEventListener('click', function(){
     humanChoice = 'paper';
-    roundCount++;
     playRound();
 });
 selectScissors.addEventListener('click', function(){
     humanChoice = 'scissors';
-    roundCount++;
     playRound();
 });
 
 //Round Play And Scoreboard
 function playRound() {
-    isPlaying = true;
-
     let compSelection = getComputerChoice();
-
+    roundCount++;
+    
     if (compSelection === humanChoice ) {
         results.textContent = "I picked " + compSelection + "!\n It's a draw!";
     } else if (compSelection === "rock" && humanChoice === 'paper'){
@@ -87,7 +82,6 @@ function playRound() {
         console.log("how");
     }
     scoreboardUpdate();
-    isPlaying = false;
 
     //Game End
     if (roundCount === 5){
