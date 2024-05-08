@@ -3,7 +3,7 @@ let humanScore = 0;
 let computerScore = 0;
 let humanChoice = '';
 let computerChoice = ''
-let roundCount = 0;
+let roundCount = 1;
 
 //Selectors-DOM
 const input = document.querySelector('.input');
@@ -84,10 +84,10 @@ function playRound() {
     scoreboardUpdate();
 
     //Game End
-    if (roundCount === 5){
+    if (roundCount === 6){
         humanScore = 0;
         computerScore = 0;
-        roundCount = 0;
+        roundCount = 1;
         scoreboardUpdate();
 
         if (humanScore > computerScore) {
