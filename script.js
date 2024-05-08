@@ -58,28 +58,14 @@ function playRound() {
     let compSelection = getComputerChoice();
     roundCount++;
     
-    if (compSelection === humanChoice ) {
+    if (compSelection==="rock"&&humanChoice==='paper'||compSelection==="paper"&&humanChoice==='scissors'||compSelection==="scissors"&&humanChoice==='rock') {
+        humanScore++;
+        results.textContent = "I picked " + compSelection + "!\n You win! You gain one point!";
+    } else if (compSelection==="rock"&&humanChoice==='scissors'||compSelection==="paper"&&humanChoice==='rock'||compSelection==="scissors"&&humanChoice==='paper') {
+        computerScore++;
+        results.textContent = "I picked " + compSelection + "!\n I win! I gain one point!";
+    } else{
         results.textContent = "I picked " + compSelection + "!\n It's a draw!";
-    } else if (compSelection === "rock" && humanChoice === 'paper'){
-        humanScore++;
-        results.textContent = "I picked " + compSelection + "!\n You win! You gain one point!";
-    } else if (compSelection === "rock" && humanChoice === 'scissors'){
-        computerScore++;
-        results.textContent = "I picked " + compSelection + "!\n I win! I gain one point!";
-    } else if (compSelection === "paper" && humanChoice === 'scissors'){
-        humanScore++;
-        results.textContent = "I picked " + compSelection + "!\n You win! You gain one point!";
-    } else if (compSelection === "paper" && humanChoice === 'rock'){
-        computerScore++;
-        results.textContent = "I picked " + compSelection + "!\n I win! I gain a point!";
-    } else if (compSelection === "scissors" && humanChoice === 'rock') {
-        humanScore++;
-        results.textContent = "I picked " + compSelection + "!\n You win! You gain one point!";
-    } else if (compSelection === "scissors" && humanChoice === 'paper') {
-        computerScore++;
-        results.textContent = "I picked " + compSelection + "!\n I win! I gain one point!";
-    } else {
-        console.log("how");
     }
     scoreboardUpdate();
 
