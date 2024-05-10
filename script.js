@@ -15,6 +15,7 @@ const scoreboard = document.querySelector('.scoreboard');
 const roundCountText = document.createElement('h3');
 const humanScoreText = document.createElement('h3');
 const computerScoreText = document.createElement('h3');
+const gameOverResult = document.createElement('h3');
 
 scoreboardUpdate();
 
@@ -35,6 +36,7 @@ selectPaper.classList.add('input');
 selectScissors.classList.add('input');
 
 input.appendChild(results);
+scoreboard.appendChild(gameOverResult);
 scoreboard.appendChild(roundCountText);
 scoreboard.appendChild(humanScoreText);
 scoreboard.appendChild(computerScoreText);
@@ -68,18 +70,18 @@ function playRound() {
     scoreboardUpdate();
     //Game End
     if (roundCount === 6){
+        scoreboardUpdate();
+        roundCountText.innerHTML = 'Game Over. This is round <span class="highlighted">1</span>';
+        if (humanScore > computerScore) {
+            gameOverResult.innerHTML = '<span class="highlighted">Congrats!</span> You win nothing at all!';
+        } else if (humanScore === computerScore) {
+            gameOverResult.innerHTML = 'A <span class="draw">draw...</span>We wasted our time...';
+        } else {
+            gameOverResult.innerHTML = 'Sorry, you <span class="lost">lose...</span>';
+        }
         humanScore = 0;
         computerScore = 0;
         roundCount = 1;
-        scoreboardUpdate();
-
-        if (humanScore > computerScore) {
-            results.textContent = "Congrats! You win nothing at all!";
-        } else if (humanScore === computerScore) {
-            results.textContent = "Congrats! You win sweet FA!";
-        }else {
-            results.textContent = "Sorry, you lose...";
-        }
     } 
 }
 function scoreboardUpdate() {
