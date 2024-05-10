@@ -82,6 +82,7 @@ function playRound() {
         humanScore = 0;
         computerScore = 0;
         roundCount = 1;
+        setTimeout(function() { scoreboard.removeChild(gameOverResult) }, 5000);
     } 
 }
 function scoreboardUpdate() {
