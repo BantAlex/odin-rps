@@ -74,8 +74,7 @@ function playRound() {
         scoreboardUpdate();
 
         if (humanScore > computerScore) {
-            console.log("Congrats! You win nothing at all!")
-            replayFunc();
+            results.textContent = "Congrats! You win nothing at all!";
         } else if (humanScore === computerScore) {
             results.textContent = "Congrats! You win sweet FA!";
         }else {
